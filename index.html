@@ -4,13 +4,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Salvador Casellas</title>
+    <meta name="description" content="Salvador Casellas: product lead and founder. Product Lead at GoodLoan.ai; building Esensee Solutions and Arcane Home.">
+    <meta property="og:title" content="Salvador Casellas">
+    <meta property="og:description" content="Product lead and founder. Product Lead at GoodLoan.ai; building Esensee Solutions and Arcane Home.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scasellas.github.io/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234f7cff'/><text x='50' y='68' font-size='52' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='white'>SC</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --text: #16181d;
+            --muted: #5b6270;
+            --border: #e6e6e3;
+            --accent: #3d63f0;
+            --accent-soft: rgba(61, 99, 240, 0.09);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d0f14;
+                --surface: #151821;
+                --text: #eceef3;
+                --muted: #9aa2b1;
+                --border: #252a36;
+                --accent: #7b9bff;
+                --accent-soft: rgba(123, 155, 255, 0.12);
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+        nav {
+            position: sticky; top: 0; z-index: 10;
+            background: color-mix(in srgb, var(--bg) 85%, transparent);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        nav .brand { font-weight: 700; color: var(--text); }
+        nav ul { list-style: none; display: flex; gap: 22px; }
+        nav ul a { color: var(--muted); font-size: 0.94rem; font-weight: 500; }
+        nav ul a:hover { color: var(--text); text-decoration: none; }
+
+        header { padding: 96px 0 72px; }
+        .eyebrow {
+            display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+            text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+            padding: 5px 12px; border-radius: 999px; margin-bottom: 22px;
+        }
+        h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; }
+        h1 span { color: var(--accent); }
+        .lead { margin-top: 20px; font-size: 1.18rem; color: var(--muted); max-width: 620px; }
+        .cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px;
+            font-weight: 600; font-size: 0.95rem; border: 1px solid var(--border); color: var(--text);
+            background: var(--surface);
+        }
+        .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .btn:hover { text-decoration: none; transform: translateY(-1px); }
+        .btn { transition: transform .15s ease; }
+
+        section { padding: 56px 0; border-top: 1px solid var(--border); }
+        h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 28px; font-weight: 600; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 26px;
+        }
+        .logo {
+            width: 52px; height: 52px; border-radius: 13px; margin-bottom: 18px;
+            display: flex; align-items: center; justify-content: center;
+            background: #ffffff; border: 1px solid var(--border); overflow: hidden;
+        }
+        .logo img { width: 62%; height: 62%; object-fit: contain; }
+        .logo.full { border: 0; }
+        .logo.full img { width: 100%; height: 100%; }
+        .stealth {
+            display: inline-block; margin-top: 16px; font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+            border: 1px dashed var(--border); border-radius: 999px; padding: 4px 12px;
+        }
+        .card h3 { font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .card .role { font-size: 0.88rem; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+        .card p { color: var(--muted); font-size: 0.97rem; }
+        .card ul { margin-top: 14px; padding-left: 18px; color: var(--muted); font-size: 0.93rem; }
+        .card li { margin: 4px 0; }
+        .card .link { display: inline-block; margin-top: 16px; font-weight: 600; font-size: 0.92rem; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: 0.9rem; font-weight: 500; padding: 7px 14px; border-radius: 8px;
+            background: var(--surface); border: 1px solid var(--border);
+        }
+
+        .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px; }
+        .principles h3 { font-size: 1.02rem; margin-bottom: 6px; }
+        .principles p { color: var(--muted); font-size: 0.95rem; }
+
+        footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+        footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+        @media (max-width: 560px) {
+            nav .wrap { gap: 16px; }
+            nav .brand { font-size: 0.95rem; }
+            nav ul { gap: 12px; }
+            nav ul a { font-size: 0.86rem; }
+            header { padding: 64px 0 48px; }
+        }
+    </style>
 </head>
 
 <body>
 
-    This is a test
+    <nav>
+        <div class="wrap">
+            <a class="brand" href="#">Salvador Casellas</a>
+            <ul>
+                <li><a href="#building">Building</a></li>
+                <li><a href="#stack">Skills</a></li>
+                <li><a href="https://github.com/scasellas">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <main class="wrap">
+        <header>
+            <div class="eyebrow">Product Lead &amp; Founder</div>
+            <h1>I lead products<br><span>people love to use.</span></h1>
+            <p class="lead">
+                I'm Salvador. I'm Product Lead at GoodLoan.ai, and I build my own ventures on the side. I care
+                about great products, strong creative, and shipping things that work.
+            </p>
+            <div class="cta">
+                <a class="btn primary" href="#building">See what I'm building</a>
+                <a class="btn" href="https://github.com/scasellas">GitHub profile →</a>
+            </div>
+        </header>
+
+        <section id="building">
+            <h2>What I'm building</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="logo"><img src="assets/logos/goodloan.svg" alt="GoodLoan.ai logo"></div>
+                    <h3>GoodLoan.ai</h3>
+                    <div class="role">Product Lead</div>
+                    <p>I lead product, internal tooling, creative, and IT &amp; tech.</p>
+                    <a class="link" href="https://www.goodloan.ai">Visit website →</a>
+                </article>
+                <article class="card">
+                    <div class="logo"><img src="assets/logos/esensee.svg" alt="Esensee Solutions logo"></div>
+                    <h3>Esensee Solutions</h3>
+                    <div class="role">Solutions &amp; advisory</div>
+                    <p>Business solutions and strategic advisory, backed by custom tooling for client work and operations.</p>
+                    <a class="link" href="https://esensee-solutions.com">Visit website →</a>
+                </article>
+                <article class="card">
+                    <div class="logo full"><img src="assets/logos/arcanehome.png" alt="Arcane Home logo"></div>
+                    <h3>Arcane Home</h3>
+                    <div class="role">Product studio</div>
+                    <p>My product studio, where I build and launch SaaS tools, digital products, and AI-powered automation.</p>
+                    <span class="stealth">In stealth</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="stack">
+            <h2>Skills &amp; tools</h2>
+            <div class="tags">
+                <span class="tag">Product management</span>
+                <span class="tag">Internal tooling</span>
+                <span class="tag">IT &amp; tech operations</span>
+                <span class="tag">Creative direction</span>
+                <span class="tag">Design</span>
+                <span class="tag">Python</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Java</span>
+                <span class="tag">HTML &amp; CSS</span>
+                <span class="tag">Shopify</span>
+                <span class="tag">AI-assisted workflows</span>
+            </div>
+        </section>
+
+        <section id="approach">
+            <h2>How I work</h2>
+            <div class="principles">
+                <div>
+                    <h3>Product first</h3>
+                    <p>I start from what the user needs and work back to what we build.</p>
+                </div>
+                <div>
+                    <h3>Creative that sells</h3>
+                    <p>Good products need a strong story, so I care about brand, design, and how they come across.</p>
+                </div>
+                <div>
+                    <h3>Ship and iterate</h3>
+                    <p>Get it in front of people early, learn fast, and keep improving. Automate the repetitive work.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>© <span id="year">2026</span> Salvador Casellas</span>
+            <a href="https://github.com/scasellas">github.com/scasellas</a>
+        </div>
+    </footer>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
