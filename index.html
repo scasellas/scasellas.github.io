@@ -3,134 +3,462 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Salvador Casellas</title>
-<meta name="description" content="Product Lead at GoodLoan. For teams building with AI: I ship it, and show the real numbers, workflows and misses.">
+<meta name="description" content="Product Lead at GoodLoan. I build AI-driven products from design through implementation, then write up what was tested, what it cost and what broke.">
 <meta property="og:title" content="Salvador Casellas">
-<meta property="og:description" content="Product Lead at GoodLoan. For teams building with AI: I ship it, and show the real numbers, workflows and misses.">
+<meta property="og:description" content="Product Lead at GoodLoan. I build AI-driven products from design through implementation, then write up what was tested, what it cost and what broke.">
 <meta property="og:url" content="https://scasellas.github.io/">
-<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png?v=2" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=3" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <style>
 @font-face{font-family:Newsreader;src:url(fonts/Newsreader-Variable.woff2) format("woff2");font-weight:200 800;font-display:swap}
 @font-face{font-family:Newsreader;src:url(fonts/Newsreader-Italic-Variable.woff2) format("woff2");font-weight:200 800;font-style:italic;font-display:swap}
 @font-face{font-family:"IBM Plex Sans";src:url(fonts/IBMPlexSans-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"IBM Plex Sans";src:url(fonts/IBMPlexSans-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url(fonts/JetBrainsMono-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
-/* Lab notebook: graph-paper hero, plain paper for reading */
-:root{--paper:#ffffff;--paper-soft:#eef2f9;--grid:#dce4f2;--ink:#1b2a4a;--muted:#4a5878;--hi:#ffe45c;--on-hi:#1b2a4a;--red:#d7263d;--rule:#c9d3e6;
---serif:Newsreader,Georgia,serif;--sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--paper:#1b2a4a;--paper-soft:#22345a;--grid:#2e4068;--ink:#ffffff;--muted:#c3cde0;--red:#ff7a86;--rule:#3a4f7a;color-scheme:dark}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.wrap{max-width:1040px;margin:0 auto;padding-inline:24px}
-.label{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.label::before{content:"";display:inline-block;width:8px;height:8px;background:var(--hi);margin-right:10px;vertical-align:1px}
-.hl{background:linear-gradient(transparent 52%,var(--hi) 52%,var(--hi) 94%,transparent 94%);color:var(--ink);padding:0 .06em}
-@media (prefers-color-scheme:dark){.hl{background:none;color:var(--hi)}}
-header.site{border-bottom:2px solid var(--ink)}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:500 22px/1 var(--serif)}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{font:500 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
-nav a:hover{text-decoration:underline}
-.hero{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-bottom:1px solid var(--rule)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:center;padding-block:72px 64px}
-h1{font:500 clamp(36px,5.4vw,60px)/1.08 var(--serif);letter-spacing:-.015em;margin:14px 0 20px;text-wrap:balance}
-.tagline{font:italic 400 21px/1.45 var(--serif);color:var(--muted);margin:0}
-.photo{width:260px;aspect-ratio:1;max-width:100%;position:relative;background:var(--ink);border:1px solid var(--rule);overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo .duo{filter:grayscale(1) contrast(1.05);mix-blend-mode:screen}
-.photo::after{content:"";position:absolute;inset:0;background:#1b2a4a;mix-blend-mode:lighten;pointer-events:none}
-.hero.nophoto .wrap{grid-template-columns:1fr}
-section{padding-block:56px;border-bottom:1px solid var(--rule)}
-h2{font:500 34px/1.12 var(--serif);letter-spacing:-.01em;margin:10px 0 24px}
-.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.topic{padding:20px 24px 22px 0;border-bottom:1px solid var(--rule);min-width:0}
-.topic h3{font:500 22px/1.2 var(--serif);margin:0 0 6px}
-.topic p{margin:0;color:var(--muted)}
-.topic h3 img{width:20px;height:20px;object-fit:contain;vertical-align:-3px;margin-right:10px;background:#fff;padding:2px}
-.posts{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.posts li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--rule)}
-.posts a{font:500 21px/1.3 var(--serif);text-decoration:none}
-.posts a:hover{text-decoration:underline}
-.notes{background:var(--paper-soft)}
-.notes .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
-.notes p{max-width:62ch;margin:0}
-.btn{display:inline-block;font:600 15px/1 var(--sans);padding:14px 20px;border:2px solid var(--ink);border-radius:2px;text-decoration:none;background:var(--ink);color:var(--paper)}
-.btn:hover{background:var(--paper);color:var(--ink)}
-.contact p{margin:0 0 8px;max-width:62ch}
-footer{padding-block:28px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
-@media (max-width:760px){
-  .hero .wrap{grid-template-columns:1fr;padding-block:48px 40px;gap:28px}
-  .photo{width:160px}
-  .topics{grid-template-columns:1fr}
-  .posts li{grid-template-columns:1fr;gap:4px}
-  .notes .wrap{grid-template-columns:1fr}
+/* Night only. Simple: an editor gutter, the mark, the work, contact. One motion idea: the mark turns from solid to lines at the top, and back at the end. */
+:root{
+  --paper:#1b2a4a; --paper-soft:#22345a; --rule:#3a4f7a; --ink:#ffffff; --muted:#c3cde0; --line-number:#93a3c4;
+  --highlighter:#ffe45c; --on-highlighter:#1b2a4a; --red-pencil:#ff7a86;
+  --serif:Newsreader, Georgia, serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gutter:64px; --mini:12px; --pad:48px; --bar:58px;
+  color-scheme:dark;
 }
+@media (max-width:720px){:root{--gutter:30px; --mini:5px; --pad:16px; --bar:54px}}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:27px;overflow-x:clip}
+a{color:inherit}
+::selection{background:var(--highlighter);color:var(--on-highlighter)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* editor chrome */
+.bar{position:fixed;top:0;left:0;right:0;z-index:30;height:calc(var(--bar) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);
+  background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:16px;padding-inline:calc(var(--gutter) + 14px) calc(var(--mini) + 18px)}
+.home{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-weight:500;font-size:20px;line-height:1;flex:none}
+.home svg{width:32px;height:32px}
+.path{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.path b{color:var(--ink);font-weight:500}
+.bar .li{margin-left:auto;font:600 14px/1 var(--sans);text-decoration:none;border-bottom:2px solid var(--highlighter);padding-bottom:3px;flex:none}
+@media (max-width:520px){.path{display:none}}
+.gutter{position:fixed;left:0;top:0;bottom:0;width:var(--gutter);background:var(--paper-soft);border-right:1px solid var(--rule);z-index:20;overflow:hidden}
+.gutter .nums{position:absolute;left:0;right:0;top:0;will-change:transform}
+.gutter span{display:block;height:27px;font:500 11px/27px var(--mono);color:var(--line-number);text-align:right;padding-right:10px;font-variant-numeric:tabular-nums}
+.gutter span.cur{color:var(--on-highlighter);background:var(--highlighter)}
+@media (max-width:720px){.gutter span{font-size:9px;padding-right:4px}}
+.mini{position:fixed;right:0;top:var(--bar);bottom:0;width:var(--mini);background:var(--paper-soft);border-left:1px solid var(--rule);z-index:20}
+.mini .thumb{position:absolute;left:0;right:0;background:var(--highlighter)}
+.mini i{position:absolute;left:0;right:0;height:1px;background:var(--line-number)}
+
+main{padding-left:var(--gutter);padding-right:var(--mini);position:relative;z-index:1}
+#field{position:fixed;left:var(--gutter);right:var(--mini);top:var(--bar);bottom:0;width:calc(100% - var(--gutter) - var(--mini));height:calc(100% - var(--bar));z-index:0;pointer-events:none;display:block}
+.scene{position:relative}
+.stage{position:sticky;top:var(--bar);height:calc(100vh - var(--bar));height:calc(100svh - var(--bar));overflow:hidden}
+.pad{padding-inline:var(--pad)}
+.comment{font:500 12px/20px var(--mono);letter-spacing:.06em;color:var(--muted);margin:0}
+.label{font:500 12px/16px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0;padding:6px 0 6px 20px;
+  background:linear-gradient(var(--highlighter),var(--highlighter)) 0 50%/10px 10px no-repeat}
+.y{color:var(--highlighter)}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.02em}
+:root{--mini:0px}
+section{padding:12vh var(--pad);max-width:1240px}
+.h2{font-size:clamp(40px,6vw,80px);line-height:1;margin:8px 0 28px}
+/* hero */
+.hero{min-height:calc(100svh - var(--bar));box-sizing:border-box;padding-top:calc(var(--bar) + 6vh);padding-bottom:8vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:24px;align-content:start}}
+.hero h1{font-size:clamp(52px,8.4vw,128px);line-height:.92;margin:14px 0 22px;max-width:9ch}
+.disc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+.disc li{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);padding:8px 10px;border-radius:2px}
+.intro{max-width:50ch;color:var(--muted);margin:0}
+.tagline{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.4vw,30px);line-height:1.25;margin:28px 0 0}
+.mark{width:100%;max-width:520px;aspect-ratio:1;justify-self:center;display:block}
+@media (max-width:860px){.mark{max-width:300px;justify-self:start;order:-1}}
+/* what I build */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:760px){.three{grid-template-columns:1fr}}
+.three > div{background:var(--paper);padding:26px 28px}
+.three h3{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3vw,40px);line-height:1;margin:14px 0 10px}
+.three p{margin:0;color:var(--muted);font-size:16px;line-height:25px}
+.s-work{padding:14vh var(--pad) 12vh}
+.grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);max-width:1240px}
+@media (max-width:760px){.grid4{grid-template-columns:1fr}}
+.tile{all:unset;box-sizing:border-box;position:relative;overflow:hidden;cursor:pointer;background:var(--paper);color:var(--ink);padding:26px 28px 24px;min-height:clamp(260px,32vw,400px);display:grid;grid-template-rows:auto 1fr auto auto;gap:12px;
+  opacity:.001;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),background .3s}
+.tile.in{opacity:1;transform:none}
+.tile:hover{background:var(--paper)}
+.tile > *{position:relative;z-index:1}
+.tile > .ghost{position:absolute}
+.tile > .bar{position:absolute}
+.tile .fillup{position:absolute;inset:0;z-index:0;background:var(--highlighter);transform-origin:bottom;transform:scaleY(0);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.tile:hover .fillup,.tile:focus-visible .fillup{transform:scaleY(1)}
+.tile,.tile .top,.tile .role{transition:color .3s .05s, opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1)}
+.tile:hover,.tile:focus-visible,.tile:hover .top,.tile:focus-visible .top,.tile:hover .role,.tile:focus-visible .role{color:var(--on-highlighter)}
+.tile:focus-visible{outline-color:var(--on-highlighter)}
+.tile:hover .bar,.tile:focus-visible .bar{background:var(--on-highlighter)}
+.tile:hover .ghost,.tile:focus-visible .ghost{opacity:.14}
+.tile::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(147,163,196,.16) 3px 5px);
+  -webkit-mask-image:repeating-linear-gradient(to right,#000 0 18px,transparent 18px 24px);mask-image:repeating-linear-gradient(to right,#000 0 18px,transparent 18px 24px)}
+.tile:hover::before,.tile:focus-visible::before{opacity:0}
+.tile.hi::before{background-image:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(27,42,74,.14) 3px 5px)}
+.dec{font-variant-ligatures:none}
+.tile:focus-visible{outline:2px solid var(--ink);outline-offset:-6px}
+.tile.hi{background:var(--highlighter);color:var(--on-highlighter)}
+.tile.hi:hover{background:#ffeb80}
+.tile.hi:focus-visible{outline-color:var(--on-highlighter)}
+.tile .top{display:flex;justify-content:space-between;gap:12px;font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tile.hi .top,.tile.hi .role{color:var(--on-highlighter)}
+.tile h3{font-family:var(--serif);font-weight:500;font-size:clamp(38px,4.6vw,72px);line-height:.95;letter-spacing:-.025em;margin:0;align-self:end;max-width:11ch;position:relative}
+.tile .role{margin:0;color:var(--muted);font-size:15px;line-height:23px;max-width:46ch;position:relative}
+.tile .bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;position:relative}
+.tile .tags{display:flex;flex-wrap:wrap;gap:6px}
+.tile .tags span{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;padding:6px 8px;border-radius:2px;opacity:.8}
+.tile .go{font:600 14px/1 var(--sans);display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.tile .go::after{content:"→";font-family:var(--mono);transition:transform .3s}
+.tile:hover .go::after{transform:translateX(6px)}
+.tile .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--highlighter);transform-origin:left;transform:scaleX(0);transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.tile.hi .bar{background:var(--on-highlighter)}
+.tile:hover .bar,.tile:focus-visible .bar{transform:scaleX(1)}
+.tile .ghost{position:absolute;right:-6%;top:-14%;width:46%;opacity:.07;pointer-events:none;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.tile.hi .ghost{opacity:.12}
+.tile:hover .ghost{transform:translate(-10px,10px)}
+.case .facts{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--rule)}
+.case .facts li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:520px){.case .facts li{grid-template-columns:1fr;gap:4px}}
+.case .facts b{font:500 12px/24px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.case .facts span{color:var(--ink)}
+.case a.out{display:inline-block;margin-top:24px;font:600 15px/1 var(--sans);text-decoration:none;border-bottom:2px solid var(--highlighter);padding-bottom:3px}
+.tile{opacity:1;transform:none}
+/* footer */
+.foot{border-top:1px solid var(--rule);padding:72px var(--pad) 28px;display:grid;gap:56px}
+.foot .big{display:grid;gap:10px;min-height:46svh;align-content:end}
+@media (max-width:640px){.foot .big{grid-template-columns:1fr}}
+.foot .big svg{width:clamp(96px,12vw,150px);height:auto;aspect-ratio:1}
+.foot .name{font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,104px);line-height:.92;letter-spacing:-.03em;margin:0;max-width:8ch}
+.foot .tag{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2.4vw,30px);line-height:1.2;margin:10px 0 0;color:var(--muted);max-width:min(560px,52%)}
+@media (max-width:860px){.foot .tag{max-width:none}}
+.foot .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:min(600px,52%)}
+@media (max-width:860px){.foot .cols{max-width:none}}
+@media (max-width:640px){.foot .cols{grid-template-columns:1fr 1fr}}
+.foot .cols p{margin:0 0 10px}
+.foot .cols ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot .cols a,.foot .cols button{all:unset;cursor:pointer;color:var(--ink);font-size:15px;border-bottom:1px solid transparent}
+.foot .cols a:hover,.foot .cols button:hover{border-bottom-color:var(--highlighter)}
+.foot .cols a:focus-visible,.foot .cols button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.foot .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:18px;font:500 12px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted)}
+.foot .base .eofm{display:inline-flex;align-items:center;gap:8px}
+.foot .base .eofm i{width:8px;height:14px;background:var(--highlighter);animation:blink 1.1s steps(1) infinite}
+.s-end{padding:14vh var(--pad) 12vh !important}
+
+.drawer{position:fixed;inset:0;z-index:50;display:flex;justify-content:flex-end;background:rgba(27,42,74,.72);opacity:0;transition:opacity .35s}
+.drawer.show{opacity:1}
+.drawer[hidden]{display:none}
+.drawer-panel{width:min(820px,100%);height:100%;overflow:auto;background:var(--paper);border-left:1px solid var(--rule);transform:translateX(40px);transition:transform .45s cubic-bezier(.22,1,.36,1);overscroll-behavior:contain}
+.drawer.show .drawer-panel{transform:none}
+.drawer-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 24px 14px;background:var(--paper);border-bottom:1px solid var(--rule)}
+.drawer-bar .comment{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.close{font:600 14px/1 var(--sans);background:var(--highlighter);color:var(--on-highlighter);border:0;border-radius:2px;padding:10px 14px;cursor:pointer;flex:none}
+.close:focus-visible{outline-color:var(--highlighter)}
+.open-case{font:600 14px/1 var(--sans);background:var(--highlighter);color:var(--on-highlighter);border:0;border-radius:2px;padding:11px 16px;cursor:pointer}
+.open-case:focus-visible{outline-color:var(--highlighter)}
+.does{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:600px){.does{grid-template-columns:1fr}}
+.does li{background:var(--paper);padding:16px 18px;display:grid;gap:4px}
+.does b{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.15}
+.does span{color:var(--muted);font-size:15px;line-height:23px}
+html.locked{overflow:hidden}
+.split details{border-top:1px solid var(--rule)}
+.split details:last-child{border-bottom:1px solid var(--rule)}
+.split summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:32px 1fr 20px;gap:8px;padding:12px 0;font-weight:600}
+.split summary::-webkit-details-marker{display:none}
+.split summary i{font:500 12px/27px var(--mono);color:var(--line-number);font-style:normal}
+.split summary::after{content:"+";font:500 16px/27px var(--mono);color:var(--highlighter);text-align:right}
+.split details[open] summary::after{content:"−"}
+.split details p{margin:0 0 14px 40px;color:var(--muted);font-size:16px;line-height:25px}
+.split summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.foot .big{grid-template-columns:minmax(0,1fr) auto;align-items:end;min-height:0}
+.foot .big canvas{width:clamp(120px,16vw,200px);aspect-ratio:1;display:block}
+@media (max-width:640px){.foot .big{grid-template-columns:1fr}.foot .big canvas{order:-1}}
+.foot .tag{max-width:none}
+/* case study text */
+.case{padding:28px 24px 64px}
+.case h2{font-size:clamp(36px,5vw,60px);line-height:.98;margin:8px 0 0;max-width:15ch}
+.case .lede{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.6vw,32px);line-height:1.25;margin:26px 0 0;max-width:34ch}
+.case .lede .y{color:var(--highlighter)}
+.case .two{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+.case h3{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;margin:0 0 10px}
+.case p{margin:0 0 12px;color:var(--muted);max-width:62ch}
+.built{margin:48px 0 0;border-top:1px solid var(--rule)}
+.built article{display:grid;grid-template-columns:1fr;gap:6px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.built h4{margin:0;font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2}
+.built p{margin:0}
+.guard{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.guard li{display:grid;grid-template-columns:22px 1fr;gap:6px;color:var(--muted)}
+.guard li::before{content:"■";color:var(--highlighter);font-size:11px;line-height:27px}
+.status{margin-top:48px;border:1px solid var(--rule)}
+.status .row{display:grid;grid-template-columns:52px 1fr;padding:14px 18px;font:500 15px/24px var(--mono)}
+.status .row.m{color:var(--red-pencil)} .status .row.m s{text-decoration-thickness:2px}
+.status .row.p{background:var(--highlighter);color:var(--on-highlighter)}
+.status p{margin:0;padding:14px 18px 18px 70px;color:var(--muted)}
+.caps{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding:0;list-style:none}
+.caps li{font:500 12px/1 var(--mono);letter-spacing:.04em;border:1px solid var(--rule);padding:9px 12px;border-radius:2px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.stack li{font:500 13px/1 var(--mono);letter-spacing:.04em;border:1px solid var(--rule);padding:9px 12px;border-radius:2px}
+.contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:760px;margin-top:28px}
+@media (max-width:560px){.contact{grid-template-columns:1fr}}
+.contact a{display:grid;gap:4px;padding:18px 20px;border:1px solid var(--rule);text-decoration:none;border-radius:2px}
+.contact a:first-child{background:var(--highlighter);color:var(--on-highlighter);border-color:var(--highlighter)}
+.contact a:first-child .k{color:var(--on-highlighter)}
+.contact a:first-child:focus-visible{outline-color:var(--highlighter)}
+.contact .k{font:500 12px/16px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.contact .v{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2;overflow-wrap:anywhere}
+.end-h{font-size:clamp(44px,7vw,104px);line-height:.95;margin:0;max-width:12ch}
 </style>
 </head>
 <body>
-<header class="site"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Salvador Casellas, home"><img src="symbol.svg?v=2" width="40" height="40" alt=""><span>Salvador Casellas</span></a>
-  <nav aria-label="Sections"><a href="#building">Building</a><a href="#writing">Writing</a><a href="#contact">Contact</a></nav>
-</div></header>
+
+
+<header class="bar">
+  <a class="home" href="#top" aria-label="Salvador Casellas, back to top"><svg viewBox="420 420 760 760" aria-hidden="true"><use href="#sc" style="fill:var(--ink)"/></svg>Salvador Casellas</a>
+  <span class="path">salvador-casellas / <b id="path">portfolio.md</b></span>
+  <a class="li" href="https://www.linkedin.com/in/scasellas/" target="_blank" rel="noopener">LinkedIn</a>
+</header>
+<div class="gutter" aria-hidden="true"><div class="nums" id="nums"></div></div>
 <main id="top">
-<div class="hero"><div class="wrap">
+
+<section class="hero" data-file="portfolio.md" aria-labelledby="h1">
   <div>
-    <div class="label">Product Lead at GoodLoan</div>
-    <h1>For teams building with AI: I <span class="hl">ship it</span>, and show the real numbers, workflows and misses.</h1>
-    <p class="tagline">AI for the repetitive part. People for the rest.</p>
+    <p class="label">Product Lead at GoodLoan</p>
+    <h1 class="serif" id="h1">AI-native product builder</h1>
+    <ul class="disc" aria-label="Disciplines"><li>Design</li><li>Apps</li><li>AI automation</li></ul>
+    <p class="intro">I build AI-driven products from design through implementation: the brand, the interface, the app and the agent pipeline behind it. Then I write up what was tested, what it cost and what broke.</p>
+    <p class="tagline"><span class="y">AI</span> for the repetitive part. <span class="y">People</span> for the rest.</p>
   </div>
-  <!-- Photo: save a square photo as site/photo.jpg; it shows as an ink-blue duotone. Until then the hero is text only. -->
-  <div class="photo" id="photo"><img class="duo" src="photo.jpg" alt="Salvador Casellas" onerror="var h=this.closest('.hero');h.classList.add('nophoto');this.parentNode.remove()"></div>
-</div></div>
+  <canvas class="mark" id="mark-top" aria-hidden="true"></canvas>
+</section>
 
-<section id="about"><div class="wrap">
-  <div class="label">About</div>
-  <h2>I build product with AI agents, from design to code.</h2>
-  <p style="max-width:62ch;margin:0 0 14px">I lead product at GoodLoan, a mortgage lender focused on home-equity debt consolidation. I'm responsible for how our product works, how it looks and what it says, and I build with AI agents at the center of the work, including Claude Code: cross-platform apps, internal tools for sales and operations, and automations that take repetitive work off the team.</p>
-  <p style="max-width:62ch;margin:0">In lending, AI has to be used carefully. I keep what we build clear, fair to the borrower and compliant with fair-lending rules.</p>
-</div></section>
-
-<section id="building"><div class="wrap">
-  <div class="label">What I'm building</div>
-  <h2>Where I build.</h2>
-  <div class="topics">
-    <div class="topic"><h3><img src="logos/goodloan.svg" alt=""><a href="https://www.goodloan.ai">GoodLoan.ai</a></h3><p>Product Lead. Product, internal tooling, creative, and IT and tech.</p></div>
-    <div class="topic"><h3><img src="logos/esensee.svg" alt=""><a href="https://esensee-solutions.com">Esensee Solutions</a></h3><p>Business solutions and strategic advisory, backed by custom tooling for client work and operations.</p></div>
-    <div class="topic"><h3><img src="logos/arcanehome.png" alt="">Arcane Home</h3><p>My product studio for SaaS tools, digital products and AI automation. In stealth.</p></div>
+<section data-file="work.md" aria-labelledby="h-work">
+  <p class="comment">// work.md</p>
+  <h2 class="serif h2" id="h-work">Work</h2>
+  <div class="grid4">
+    <button class="tile" type="button" data-open="goodloan" aria-haspopup="dialog">
+      <svg class="ghost" viewBox="420 420 760 760" aria-hidden="true"><use href="#sc" style="fill:currentColor"/></svg>
+      <span class="top"><span>01 · Now</span><span>Product Lead</span></span>
+      <h3>GoodLoan.ai</h3>
+      <span class="role">Product strategy, internal tools, design and technical infrastructure for a mortgage and financial planning platform.</span>
+      <span class="bottom"><span class="tags"><span>Product</span><span>Design</span><span>AI agents</span><span>Fintech</span></span><span class="go">Open</span></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="fillup" aria-hidden="true"></span>
+    </button>
+    <button class="tile" type="button" data-open="esensee" aria-haspopup="dialog">
+      <svg class="ghost" viewBox="420 420 760 760" aria-hidden="true"><use href="#sc" style="fill:currentColor"/></svg>
+      <span class="top"><span>02 · Founder</span><span>Studio</span></span>
+      <h3>Esensee Solutions</h3>
+      <span class="role">Websites, domains, email and map listings for small businesses, with an agent pipeline behind the prospect reports.</span>
+      <span class="bottom"><span class="tags"><span>Websites</span><span>Automation</span><span>Agents</span></span><span class="go">Open</span></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="fillup" aria-hidden="true"></span>
+    </button>
+    <button class="tile" type="button" data-open="os" aria-haspopup="dialog">
+      <svg class="ghost" viewBox="420 420 760 760" aria-hidden="true"><use href="#sc" style="fill:currentColor"/></svg>
+      <span class="top"><span>03 · Case study</span><span>Ongoing</span></span>
+      <h3>Personal operating system</h3>
+      <span class="role">Makes calls for me, books appointments, keeps my calendar, reads my running and health logs and surfaces what matters.</span>
+      <span class="bottom"><span class="tags"><span>Voice agent</span><span>Calendar</span><span>Health data</span></span><span class="go">Open</span></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="fillup" aria-hidden="true"></span>
+    </button>
+    <button class="tile" type="button" data-open="arcane" aria-haspopup="dialog">
+      <svg class="ghost" viewBox="420 420 760 760" aria-hidden="true"><use href="#sc" style="fill:currentColor"/></svg>
+      <span class="top"><span>04 · Founder</span><span>In stealth</span></span>
+      <h3>Arcane Home</h3>
+      <span class="role">A product studio for SaaS tools and AI automation.</span>
+      <span class="bottom"><span class="tags"><span>SaaS</span><span>AI automation</span></span><span class="go">Open</span></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="fillup" aria-hidden="true"></span>
+    </button>
   </div>
-</div></section>
+</section>
 
-<section id="writing"><div class="wrap">
-  <div class="label">What I write about</div>
-  <h2>Real work, written up with numbers.</h2>
-  <div class="topics">
-    <div class="topic"><h3>Technical AI breakdowns</h3><p>How models and agent workflows compare when you ship real work with them.</p></div>
-    <div class="topic"><h3>Lessons from real projects</h3><p>What worked, what broke, and what I'd do again.</p></div>
-    <div class="topic"><h3>Leading dev teams</h3><p>How work splits between people and agents, week to week.</p></div>
-    <div class="topic"><h3>AI in lending and tech</h3><p>Where lenders are putting AI to work, and where it has to be careful.</p></div>
+<section data-file="what-i-build.md" aria-labelledby="h-build">
+  <p class="comment">// what-i-build.md</p>
+  <h2 class="serif h2" id="h-build">What I build</h2>
+  <div class="three">
+    <div><span class="label">01</span><h3>Design</h3><p>Brands, interfaces and design systems that hold together from the logo to the last screen.</p></div>
+    <div><span class="label">02</span><h3>Apps</h3><p>Web apps, internal tools and sites, built with Claude Code and taken all the way to live.</p></div>
+    <div><span class="label">03</span><h3>AI automation</h3><p>Pipelines where the model does the repetitive work, fixed rules keep the facts straight and a person makes the call.</p></div>
   </div>
-  <div class="label" style="margin-top:44px">Latest on LinkedIn</div>
-  <ul class="posts" style="margin-top:14px">
-    <li><span class="label">Oct 5</span><a href="https://www.linkedin.com/in/scasellas">Frontier-level coding got cheaper this week</a></li>
-    <li><span class="label">Oct 7</span><a href="https://www.linkedin.com/in/scasellas">Write the rules where the agent reads them</a></li>
-    <li><span class="label">Oct 9</span><a href="https://www.linkedin.com/in/scasellas">Only about a quarter of mortgage lenders have scaled an AI use case</a></li>
-  </ul>
-</div></section>
+</section>
 
-<section id="contact" class="contact"><div class="wrap">
-  <div class="label">Contact</div>
-  <h2>Building with AI in product, design or fintech?</h2>
-  <p>I'd like to hear what you're working on. Message me on <a href="https://www.linkedin.com/in/scasellas">LinkedIn</a>. Code is on <a href="https://github.com/scasellas">GitHub</a>.</p>
-</div></section>
+<section data-file="contact.md" aria-labelledby="contact">
+  <p class="comment">// contact.md</p>
+  <h2 class="serif end-h" id="contact" style="margin-top:8px">Building something with <span class="y">AI</span>?</h2>
+  <p style="color:var(--muted);max-width:56ch;margin:20px 0 0">Send a message on LinkedIn. Product, design or automation, I'm happy to compare notes.</p>
+  <div class="contact">
+    <a href="https://www.linkedin.com/in/scasellas/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/scasellas</span></a>
+    <a href="https://github.com/scasellas" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">scasellas</span></a>
+  </div>
+</section>
+
+<footer class="foot" data-file="footer.md">
+  <div class="big">
+
+    <div><p class="name">Salvador Casellas</p><p class="tag"><span class="y">AI</span> for the repetitive part. <span class="y">People</span> for the rest.</p></div>
+    <canvas id="mark-end" aria-hidden="true"></canvas>
+  </div>
+  <div class="cols">
+    <div><p class="label">Work</p><ul><li><button type="button" data-open="goodloan">GoodLoan.ai</button></li><li><button type="button" data-open="esensee">Esensee Solutions</button></li><li><button type="button" data-open="os">Personal operating system</button></li><li><button type="button" data-open="arcane">Arcane Home</button></li></ul></div>
+    <div><p class="label">Elsewhere</p><ul><li><a href="https://www.linkedin.com/in/scasellas/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/scasellas" target="_blank" rel="noopener">GitHub</a></li></ul></div>
+    <div><p class="label">Now</p><ul><li>Product Lead at GoodLoan</li><li>Build logs every week</li></ul></div>
+  </div>
+  <div class="base"><span>© 2026 Salvador Casellas</span><span class="eofm"><i></i>EOF</span></div>
+</footer>
 </main>
-<footer><div class="wrap"><span>Salvador Casellas</span><span>Set in Newsreader, IBM Plex Sans and JetBrains Mono.</span></div></footer>
+
+<div class="drawer" id="case" role="dialog" aria-modal="true" aria-label="Project details" hidden>
+  <div class="drawer-panel" tabindex="-1">
+    <div class="drawer-bar"><p class="comment" id="case-path">// work/</p><button class="close" type="button" id="case-close">Close</button></div>
+    <article class="case" data-case="goodloan" hidden>
+      <h2 class="serif">GoodLoan.ai</h2>
+      <p class="lede">Product Lead: product strategy, internal tools, design and technical infrastructure.</p>
+      <p style="margin-top:22px">A mortgage and financial planning platform that pulls a homeowner's mortgage, debts and payments into one place and models the options. I bring in AI agents where they help, inside <span class="y" style="color:var(--highlighter)">fair-lending and compliance</span> rules.</p>
+      <ul class="facts"><li><b>Role</b><span>Product Lead</span></li><li><b>Owns</b><span>Product, internal tools, design, technical infrastructure</span></li><li><b>AI</b><span>Agents where they help, inside fair-lending and compliance rules</span></li></ul>
+      <a class="out" href="https://goodloan.ai" target="_blank" rel="noopener">goodloan.ai</a>
+    </article>
+    <article class="case" data-case="esensee" hidden>
+      <h2 class="serif">Esensee Solutions</h2>
+      <p class="lede">Web presence for small businesses, built by one person with custom tooling.</p>
+      <p style="margin-top:22px">Websites, domains, professional email and map listings for restaurants, salons, contractors and shops, typically live within two weeks.</p>
+      <ul class="facts"><li><b>Research</b><span>The model reads map listings, reviews, sites, domains and socials</span></li><li><b>Sources</b><span>Every finding needs a link; no source, and the build refuses it</span></li><li><b>Report</b><span>Fixed rules and templates in two languages write it, not the model</span></li><li><b>People</b><span>First contact stays founder-led</span></li></ul>
+      <a class="out" href="https://esensee-solutions.com" target="_blank" rel="noopener">esensee-solutions.com</a>
+    </article>
+    <article class="case" data-case="arcane" hidden>
+      <h2 class="serif">Arcane Home</h2>
+      <p class="lede">A product studio for SaaS tools and AI automation.</p>
+      <p style="margin-top:22px">In stealth. More here when the first product is ready.</p>
+      <a class="out" href="https://www.linkedin.com/in/scasellas/" target="_blank" rel="noopener">Follow on LinkedIn for the launch</a>
+    </article>
+    <article class="case" data-case="os" hidden>
+  <h2 class="serif" id="h-case">AI automation for a personal operating system</h2>
+  <p class="lede">I designed and run an operating layer that makes calls for me, books appointments, keeps my calendar, reads my running and health logs and surfaces what matters on its own, with clear limits where <span class="y">human judgment</span> or approval matters.</p>
+  <ul class="does" aria-label="What it does">
+    <li><b>Makes calls for me</b><span>A bilingual voice agent that says it's an assistant, keeps transcripts and recordings, and books within the limits I set.</span></li>
+    <li><b>Books appointments</b><span>And puts them on my calendar, then checks the entry is really there.</span></li>
+    <li><b>Turns email into events</b><span>Only when the date is in the future and the time has an explicit AM or PM. Anything unclear is flagged.</span></li>
+    <li><b>Reads my running and health logs</b><span>Folds them into scheduled reviews, next to household admin, planning and open opportunities.</span></li>
+    <li><b>Surfaces things on its own</b><span>Reminders, reviews and changes worth knowing about, without being asked, and silence when there's nothing new.</span></li>
+    <li><b>Keeps knowledge searchable</b><span>Research, notes, plans and meetings in one base, raw capture kept apart from reviewed guidance.</span></li>
+  </ul>
+  <div class="two">
+    <div><h3>The challenge</h3>
+      <p>Personal and small-business work was spread across email, calendars, documents, spreadsheets, messaging, research and manual follow-ups.</p>
+      <p>Automation had to work across those boundaries without creating duplicate events, inventing missing details, exposing private information or taking consequential actions without permission.</p></div>
+    <div><h3>Safety and privacy by design</h3>
+      <ul class="guard">
+        <li>Human approval for spending, public publishing, credential handling, destructive changes, sensitive security decisions and any commitment not explicitly authorized.</li>
+        <li>No inventing facts: when evidence is incomplete, it asks for review or reports the limitation.</li>
+        <li>AI-generated actions are checked against the source or destination system wherever practical.</li>
+        <li>Names, contact details, credentials and private infrastructure are left out of this case study.</li>
+      </ul></div>
+  </div>
+  <div class="built">
+    <article><h4>Email to calendar</h4><p>Scans recent email for event messages and creates an entry only when a future date and an explicit AM/PM time are unambiguous. Unclear messages are flagged, not guessed. Tested; the latest run completed with no events to add.</p></article>
+    <article><h4>Recurring Life OS automations</h4><p>Scheduled reviews and reminders for household admin, health and running data, planning and open opportunities. Script-backed jobs stay silent when there is nothing useful to report and surface errors when action is needed.</p></article>
+    <article><h4>Knowledge and planning</h4><p>Research, notes, plans and meeting material in a searchable knowledge base, with raw capture kept apart from reviewed, reusable guidance.</p></article>
+    <article><h4>Bilingual call workflow</h4><p>An AI-assisted phone workflow with a transparent assistant identity, transcripts and recordings for diagnosis, and booking guardrails. Payment, deposits, changed terms or an unapproved commitment stop for human direction.</p></article>
+    <article><h4>Business-development support</h4><p>Research, lead lists, outreach scripts and pipeline tracking for a services initiative. First contact stays founder-led, not delegated to an AI voice agent.</p></article>
+    <article><h4>Reliability monitoring</h4><p>Scheduled health checks, alert suppression for unchanged conditions, backups and operational reviews. Fixed scheduled jobs pinned to a stale model configuration and verified successful runs where safe.</p></article>
+  </div>
+  <div class="two">
+    <div><h3>Results</h3>
+      <p>Working integrations, scheduled automations, monitoring scripts and reusable operating procedures, not a prototype or a prompt collection. Several workflows have run against live systems, including calendar sync and scheduled reports.</p>
+      <p>Operation exposed real problems, and they were fixed: stale model pins, unsafe date inference, misleading job-status reporting and repeated alerts for unchanged conditions.</p></div>
+    <div><h3>Scope and status</h3>
+      <p>An evolving, personally operated system. Not a claim of universal reliability, quantified time savings or a fully autonomous agent. Results depend on source-system access, provider availability and ongoing monitoring.</p>
+      <p>The design favours practical integration, conservative action boundaries and observable behaviour over autonomy for its own sake.</p></div>
+  </div>
+  <div class="status" aria-label="Current limitation">
+    <div class="row m"><span>−</span><span><s>local model workflow: running</s></span></div>
+    <div class="row p"><span>+</span><span>paused: model found running without the expected GPU allocation</span></div>
+    <p>Rather than quietly shifting the work to CPU, the automation stopped until infrastructure access is verified. Fail visibly and safely instead of pretending the system is healthy.</p>
+  </div>
+  <ul class="caps" aria-label="Capabilities demonstrated"><li>Workflow automation</li><li>AI-assisted operations</li><li>Email and calendar integration</li><li>Knowledge management</li><li>Scheduled agents</li><li>Bilingual voice workflows</li><li>Human-in-the-loop design</li><li>Privacy-conscious automation</li><li>Monitoring and recovery</li><li>Operational testing</li></ul>
+</article>
+  </div>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="sc" d="M1003.5 1111.7C1000.2 1102.6 995.3 1089.1 992.6 1081.6L989.1 1072.1L994.3 1069.2C1015.4 1057.3 1020.4 1028.7 1004.5 1011.1C996.3 1002.0 986.6 998.0 973.1 998.0C917.6 997.9 861.6 971.3 824.7 927.6C817.3 918.8 806.4 902.9 802.9 895.8C801.7 893.2 800.3 891.3 799.8 891.6C799.3 891.9 797.9 894.2 796.6 896.8C795.3 899.4 791.6 905.3 788.5 909.9C761.9 949.6 721.0 978.9 675.8 991.0C631.7 1002.7 587.0 999.5 545.8 981.7C516.9 969.3 488.7 948.0 470.1 924.5C463.8 916.6 453.0 900.6 453.0 899.3C453.0 898.6 458.6 895.3 485.0 880.3L490.6 877.1L496.5 886.3C504.8 899.1 524.3 918.5 537.5 927.3C555.2 939.0 573.7 946.7 594.5 951.2C609.0 954.3 639.0 954.3 653.6 951.2C672.8 947.1 695.2 937.8 709.9 927.8C725.4 917.2 741.5 901.1 751.4 886.2C771.5 856.1 780.4 821.7 777.2 786.6C773.8 749.4 759.1 717.9 732.6 691.4C718.9 677.8 706.6 669.0 690.0 661.1C669.4 651.4 653.0 647.5 626.7 646.0C601.3 644.5 588.4 640.2 572.9 627.8C551.7 610.8 540.7 586.2 542.3 559.0C543.0 546.8 544.9 539.7 550.5 528.3C556.1 517.0 563.5 507.5 572.6 500.2C579.7 494.5 594.9 486.4 596.0 487.7C596.4 488.2 598.6 493.9 601.0 500.5C603.3 507.1 606.5 516.0 608.1 520.2L610.9 527.9L605.6 530.9C600.1 533.9 593.0 541.2 590.2 546.5C589.4 548.1 588.1 551.8 587.4 554.5C583.6 568.4 588.1 582.7 599.2 592.4C607.1 599.3 612.7 601.1 630.5 602.1C661.8 603.9 685.0 609.7 711.3 622.4C746.9 639.6 778.6 669.6 796.6 703.3L799.8 709.3L801.2 706.9C802.0 705.6 804.8 700.9 807.5 696.5C833.7 652.9 880.3 619.0 930.0 607.5C960.8 600.4 991.2 600.4 1022.0 607.5C1070.0 618.6 1113.6 649.2 1141.4 691.4C1144.5 696.1 1147.0 700.3 1147.0 700.7C1147.0 701.4 1141.4 704.7 1115.0 719.7L1109.4 722.9L1103.5 713.7C1095.2 700.9 1075.7 681.5 1062.5 672.7C1044.7 661.0 1026.5 653.3 1006.0 648.9C997.1 647.0 992.5 646.6 976.0 646.6C955.0 646.6 944.5 648.1 928.0 653.6C859.5 676.4 815.2 745.0 823.0 816.1C826.9 852.0 841.7 882.8 867.4 908.6C881.1 922.2 893.4 931.0 910.0 938.9C930.8 948.7 946.7 952.5 973.1 954.0C993.5 955.1 1001.1 956.9 1014.5 963.8C1021.8 967.5 1025.4 970.3 1033.1 978.0C1047.2 991.9 1054.2 1005.4 1057.1 1024.1C1058.5 1032.9 1057.8 1048.1 1055.6 1056.5C1053.3 1065.3 1045.7 1080.0 1039.6 1087.6C1033.3 1095.5 1023.1 1103.9 1014.8 1108.1C1005.9 1112.6 1004.0 1113.2 1003.5 1111.7Z"/></defs></svg>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const io = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+  const css = getComputedStyle(document.documentElement), C = k => css.getPropertyValue('--' + k).trim();
+  const INK = C('ink'), NUM = C('line-number');
+
+  /* gutter: line numbers that follow the scroll, one selected row */
+  const LINE = 27, nums = $('#nums'), pathEl = $('#path'), files = $$('[data-file]'); let rows = 0, ticking = false;
+  const build = () => { rows = Math.ceil(innerHeight / LINE) + 2; nums.innerHTML = ''; for (let i = 0; i < rows; i++) nums.appendChild(document.createElement('span')); gut(); };
+  function gut(){ ticking = false; const y = scrollY, first = Math.floor(y / LINE), mid = Math.floor(rows / 2);
+    nums.style.transform = `translateY(${-(y % LINE)}px)`;
+    [...nums.children].forEach((s, i) => { s.textContent = String(first + i + 1).padStart(4, '0'); s.className = i === mid ? 'cur' : ''; });
+    let cur = files[0]; files.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .45) cur = s; });
+    if (pathEl.textContent !== cur.dataset.file) pathEl.textContent = cur.dataset.file; }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(gut); } }, {passive:true});
+
+  /* the mark: solid, then it turns into lines of code (top); lines, then solid again (end) */
+  const SC = new Path2D($('#sc').getAttribute('d'));
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const R = Array.from({length: 8192}, () => rnd()), LEN = Array.from({length: 8192}, () => .35 + rnd() * .6);
+  function mark(cv){
+    const dpr = Math.min(2, devicePixelRatio || 1), S = cv.clientWidth; cv.width = cv.height = S * dpr;
+    const k = S / 760, colW = Math.max(5, S / 46), rowH = Math.max(3.5, S / 140), h = Math.max(1.5, rowH * .45);
+    const m = document.createElement('canvas'); m.width = m.height = S; const mx = m.getContext('2d');
+    mx.setTransform(k, 0, 0, k, -420 * k, -420 * k); mx.fill(SC);
+    const d = mx.getImageData(0, 0, S, S).data, ticks = [];
+    for (let y = 0, r = 0; y < S; y += rowH, r++) for (let x = 0, c = 0; x < S; x += colW, c++) {
+      const id = (r * 97 + c * 31) & 8191, w = colW * .82 * LEN[id];
+      const hit = [0, .5, 1].some(f => { const xi = (x + w * f) | 0, yi = (y + h / 2) | 0; return xi < S && d[(yi * S + xi) * 4 + 3] > 60; });
+      ticks.push({ x, y, w, hit, id });
+    }
+    const c = cv.getContext('2d');
+    return t => {   // t: 0 = solid, 1 = lines
+      c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, S, S);
+      for (const q of ticks) {
+        if (q.hit) { if (R[q.id] >= t) continue; c.globalAlpha = 1; c.fillStyle = INK; }
+        else { c.globalAlpha = .1 * t; c.fillStyle = NUM; if (!t) continue; }
+        c.fillRect(q.x, q.y, q.w, h);
+      }
+      if (t < 1) { c.globalAlpha = 1 - t; c.fillStyle = INK; c.setTransform(dpr * k, 0, 0, dpr * k, -420 * k * dpr, -420 * k * dpr); c.fill(SC); }
+      c.globalAlpha = 1;
+    };
+  }
+  function play(draw, from, to, ms){ if (reduce) { draw(to); return; } const t0 = performance.now();
+    const step = now => { const p = clamp((now - t0) / ms); draw(from + (to - from) * io(p)); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  let top, end, endPlayed = false;
+  function setup(){ build(); top = mark($('#mark-top')); end = mark($('#mark-end')); }
+  setup(); top(0); end(1);
+  setTimeout(() => play(top, 0, 1, 1800), 500);
+  new IntersectionObserver((es, ob) => es.forEach(e => { if (e.isIntersecting && !endPlayed) { endPlayed = true; play(end, 1, 0, 1800); ob.disconnect(); } }), {threshold:.6}).observe($('#mark-end'));
+  let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { setup(); top(1); end(endPlayed ? 0 : 1); }, 150); });
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(gut);
+
+  /* project panel */
+  const drawer = $('#case'), panel = $('#case .drawer-panel'), casePath = $('#case-path'); let opener = null;
+  const PATHS = { goodloan:'// work/goodloan.md', esensee:'// work/esensee-solutions.md', os:'// case-studies/personal-os.md', arcane:'// work/arcane-home.md' };
+  function openCase(e){ opener = e.currentTarget; const key = opener.dataset.open;
+    $$('#case [data-case]').forEach(a => a.hidden = a.dataset.case !== key); casePath.textContent = PATHS[key];
+    drawer.hidden = false; panel.scrollTop = 0; document.documentElement.classList.add('locked'); requestAnimationFrame(() => { drawer.classList.add('show'); panel.focus(); }); }
+  function closeCase(){ drawer.classList.remove('show'); document.documentElement.classList.remove('locked'); setTimeout(() => { drawer.hidden = true; opener && opener.focus(); }, reduce ? 0 : 350); }
+  $$('[data-open]').forEach(b => b.addEventListener('click', openCase));
+  $('#case-close').addEventListener('click', closeCase);
+  drawer.addEventListener('click', e => { if (e.target === drawer) closeCase(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !drawer.hidden) closeCase(); });
+})();
+</script>
+
 </body>
 </html>
